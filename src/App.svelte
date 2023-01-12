@@ -1,20 +1,21 @@
 <script lang="ts">
 	import ModeSwitcher from './ModeSwitcher.svelte';
 	import Tailwindcss from './Tailwindcss.svelte';
-	export let name: string;
+	let prompt = 'start typing here';
 </script>
-<style>
-	.custom-style {
-		@apply italic;
-	}
-</style>
 <Tailwindcss />
 <ModeSwitcher />
-<main class="p-4 mx-auto text-center max-w-xl">
-	<h1 class="uppercase text-6xl leading-normal font-thin text-svelte">Hello {name}!</h1>
-	<p class="custom-style mt-[3rem]">
-		Visit the
-		<a href="https://svelte.dev/tutorial" class="text-blue-500 underline">Svelte tutorial</a>
-		to learn how to build Svelte apps.
+<main class="p-4 text-center">
+	<h1 class="text-7xl leading-normal  text-svelte">OpenAI frontend template!</h1>
+	<p class="text-xl mt-12 mb-12">
+		Unlock the Power of GPT-3 by creating a custom website to send prompts to the API.
 	</p>
+
+	<div class="prompt-container">
+        <textarea bind:value={prompt} class="prompt-box text-black w-6/12 h-48 text-left align-top" />
+    </div>
+
+	<button class="bg-svelte dark:hover:bg-orange-800 hover:bg-orange-600 text-black dark:text-white hover:border-2 hover:border-black dark:hover:border-white font-bold py-2 px-4 rounded mt-6">
+		Generate
+	</button>
 </main>
